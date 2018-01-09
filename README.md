@@ -1,7 +1,7 @@
 # Defy Gravity Practice Mod
 This is a practice modification for Defy Gravity, to practice individual levels for speedrunning. Contains also other fixes, that might be useful to all players.
 
-Download the [https://github.com/jkarkkainen/DefyGravityPracticeMod/releases/latest](latest release), unpack over the `DefyGravity.exe`
+Download the [latest release](https://github.com/jkarkkainen/DefyGravityPracticeMod/releases/latest), unpack over the `DefyGravity.exe`
 
 ### Usage
 | **At any time**||
