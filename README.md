@@ -11,4 +11,7 @@ Download the [latest release](https://github.com/jkarkkainen/DefyGravityPractice
 |PageUp | Load Next Level|
 |PageDown | Load Previous Level|
 |Tab | Toggle Hard Mode|
-|F1 | Toggle Slowdown Fix (is saved so survives restart and fix stays active out of practice mode)|
+||**Following settings are saved and work after exiting practice mode/game as well**|
+|F1 | Toggle Slowdown Fix|
+|F2 | Toggle Experimental Timing Fix (tries to sync updates to be always 60Hz)|
+|F3 | Toggle VSync
