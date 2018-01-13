@@ -8,7 +8,7 @@ namespace RocketJump.Modification
 	// Token: 0x020000B4 RID: 180
 	public class TexturePackSettings
 	{
-		// Token: 0x06000534 RID: 1332 RVA: 0x00005610 File Offset: 0x00003810
+		// Token: 0x06000533 RID: 1331 RVA: 0x000055EA File Offset: 0x000037EA
 		public TexturePackSettings()
 		{
 			if (PlatformerGame.Instance.TextureContent.RootDirectory != "Content")
@@ -17,8 +17,8 @@ namespace RocketJump.Modification
 			}
 		}
 
-		// Token: 0x17000079 RID: 121
-		// (get) Token: 0x06000535 RID: 1333 RVA: 0x00005639 File Offset: 0x00003839
+		// Token: 0x17000078 RID: 120
+		// (get) Token: 0x06000534 RID: 1332 RVA: 0x00005613 File Offset: 0x00003813
 		private string TextureSettingsPath
 		{
 			get
@@ -27,7 +27,7 @@ namespace RocketJump.Modification
 			}
 		}
 
-		// Token: 0x06000536 RID: 1334 RVA: 0x0003190C File Offset: 0x0002FB0C
+		// Token: 0x06000535 RID: 1333 RVA: 0x00031924 File Offset: 0x0002FB24
 		public void LoadSettings()
 		{
 			try
@@ -43,7 +43,7 @@ namespace RocketJump.Modification
 			}
 		}
 
-		// Token: 0x06000537 RID: 1335 RVA: 0x00031978 File Offset: 0x0002FB78
+		// Token: 0x06000536 RID: 1334 RVA: 0x00031990 File Offset: 0x0002FB90
 		public void SaveSettings()
 		{
 			try
@@ -58,8 +58,8 @@ namespace RocketJump.Modification
 			}
 		}
 
-		// Token: 0x1700007A RID: 122
-		// (get) Token: 0x06000539 RID: 1337 RVA: 0x00005660 File Offset: 0x00003860
+		// Token: 0x17000079 RID: 121
+		// (get) Token: 0x06000538 RID: 1336 RVA: 0x0000563A File Offset: 0x0000383A
 		public static TexturePackSettings Instance
 		{
 			get
@@ -68,7 +68,7 @@ namespace RocketJump.Modification
 			}
 		}
 
-		// Token: 0x0600053A RID: 1338 RVA: 0x00005667 File Offset: 0x00003867
+		// Token: 0x06000539 RID: 1337 RVA: 0x00005641 File Offset: 0x00003841
 		public void ApplyPointClampSetting(GraphicsDevice graphicsDevice)
 		{
 			if (this.UsePointClamp)
@@ -80,13 +80,13 @@ namespace RocketJump.Modification
 			}
 		}
 
-		// Token: 0x0600053B RID: 1339 RVA: 0x00005691 File Offset: 0x00003891
+		// Token: 0x0600053A RID: 1338 RVA: 0x0000566B File Offset: 0x0000386B
 		protected override void Finalize()
 		{
 			this.SaveSettings();
 		}
 
-		// Token: 0x0600053C RID: 1340 RVA: 0x00005699 File Offset: 0x00003899
+		// Token: 0x0600053B RID: 1339 RVA: 0x00005673 File Offset: 0x00003873
 		public void UnApplyPointClampSetting(GraphicsDevice graphicsDevice)
 		{
 			if (this.UsePointClamp)
@@ -98,7 +98,7 @@ namespace RocketJump.Modification
 			}
 		}
 
-		// Token: 0x0600053D RID: 1341 RVA: 0x000056C3 File Offset: 0x000038C3
+		// Token: 0x0600053C RID: 1340 RVA: 0x0000569D File Offset: 0x0000389D
 		public void ApplyPointClampSetting(SpriteBatch spriteBatch)
 		{
 			if (this.UsePointClamp)
@@ -109,7 +109,7 @@ namespace RocketJump.Modification
 			}
 		}
 
-		// Token: 0x0600053E RID: 1342 RVA: 0x000056E8 File Offset: 0x000038E8
+		// Token: 0x0600053D RID: 1341 RVA: 0x000056C2 File Offset: 0x000038C2
 		public void UnApplyPointClampSetting(SpriteBatch spriteBatch)
 		{
 			if (this.UsePointClamp)
@@ -120,10 +120,10 @@ namespace RocketJump.Modification
 			}
 		}
 
-		// Token: 0x0400065D RID: 1629
+		// Token: 0x0400065C RID: 1628
 		public bool UsePointClamp;
 
-		// Token: 0x0400065E RID: 1630
+		// Token: 0x0400065D RID: 1629
 		private static TexturePackSettings instance = new TexturePackSettings();
 	}
 }
