@@ -239,7 +239,6 @@ namespace RocketJump.Modification
 				this._game.hardMode = !this._game.hardMode;
 			}
 			this._game.savePoint = 0;
-			this.allowNextLoad = true;
 			this._game.showingPlot = true;
 			this._game.levelTime = 0f;
 			this._game.GetType().GetMethod("LoadNextLevel", BindingFlags.Instance | BindingFlags.NonPublic).Invoke(this._game, null);
@@ -255,13 +254,12 @@ namespace RocketJump.Modification
 				this._game.hardMode = !this._game.hardMode;
 			}
 			this._game.savePoint = 0;
-			this.allowNextLoad = true;
 			this._game.showingPlot = true;
 			this._game.levelTime = 0f;
 			this._game.GetType().GetMethod("LoadNextLevel", BindingFlags.Instance | BindingFlags.NonPublic).Invoke(this._game, null);
 		}
 
-		// Token: 0x060004F6 RID: 1270 RVA: 0x000312A8 File Offset: 0x0002F4A8
+		// Token: 0x060004F6 RID: 1270 RVA: 0x00031310 File Offset: 0x0002F510
 		public void ToggleHardMode()
 		{
 			this._game.hardMode = !this._game.hardMode;
@@ -270,13 +268,13 @@ namespace RocketJump.Modification
 			this.allowNextLoad = true;
 		}
 
-		// Token: 0x060004F7 RID: 1271 RVA: 0x000312F4 File Offset: 0x0002F4F4
+		// Token: 0x060004F7 RID: 1271 RVA: 0x0003135C File Offset: 0x0002F55C
 		public void ToggleFixedTimestep()
 		{
 			this.practiceModeSettings.IsFixedTimeStep = (this._game.IsFixedTimeStep = !this._game.IsFixedTimeStep);
 		}
 
-		// Token: 0x060004F8 RID: 1272 RVA: 0x00031328 File Offset: 0x0002F528
+		// Token: 0x060004F8 RID: 1272 RVA: 0x00031390 File Offset: 0x0002F590
 		public void SaveConfig()
 		{
 			try
@@ -292,7 +290,7 @@ namespace RocketJump.Modification
 			}
 		}
 
-		// Token: 0x060004F9 RID: 1273 RVA: 0x00031398 File Offset: 0x0002F598
+		// Token: 0x060004F9 RID: 1273 RVA: 0x00031400 File Offset: 0x0002F600
 		public void LoadConfig()
 		{
 			try
@@ -317,7 +315,7 @@ namespace RocketJump.Modification
 			this.ApplyConfig();
 		}
 
-		// Token: 0x060004FB RID: 1275 RVA: 0x00031428 File Offset: 0x0002F628
+		// Token: 0x060004FB RID: 1275 RVA: 0x00031490 File Offset: 0x0002F690
 		public void ApplyConfig()
 		{
 			this._game.IsFixedTimeStep = this.practiceModeSettings.IsFixedTimeStep;
@@ -351,7 +349,7 @@ namespace RocketJump.Modification
 			this.SaveConfig();
 		}
 
-		// Token: 0x06000503 RID: 1283 RVA: 0x00031478 File Offset: 0x0002F678
+		// Token: 0x06000503 RID: 1283 RVA: 0x000314E0 File Offset: 0x0002F6E0
 		public void ToggleVSync()
 		{
 			this.practiceModeSettings.SyncToVerticalRefresh = !this.practiceModeSettings.SyncToVerticalRefresh;
