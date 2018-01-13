@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Threading;
 using System.Windows.Forms;
 using System.Xml.Serialization;
@@ -229,7 +230,7 @@ namespace RocketJump.Modification
 			this.CurrentMode = (this.CurrentMode + 1) % (PracticeMode.PracticeModes)3;
 		}
 
-		// Token: 0x060004F4 RID: 1268 RVA: 0x000311D4 File Offset: 0x0002F3D4
+		// Token: 0x060004F4 RID: 1268
 		public void LoadNextLevel()
 		{
 			if (this._game.levelIndex >= 24)
@@ -238,11 +239,13 @@ namespace RocketJump.Modification
 				this._game.hardMode = !this._game.hardMode;
 			}
 			this._game.savePoint = 0;
-			this._game.loadNextLevel = true;
 			this.allowNextLoad = true;
+			this._game.showingPlot = true;
+			this._game.levelTime = 0f;
+			this._game.GetType().GetMethod("LoadNextLevel", BindingFlags.Instance | BindingFlags.NonPublic).Invoke(this._game, null);
 		}
 
-		// Token: 0x060004F5 RID: 1269 RVA: 0x00031234 File Offset: 0x0002F434
+		// Token: 0x060004F5 RID: 1269
 		public void LoadPreviousLevel()
 		{
 			this._game.levelIndex -= 2;
@@ -252,8 +255,10 @@ namespace RocketJump.Modification
 				this._game.hardMode = !this._game.hardMode;
 			}
 			this._game.savePoint = 0;
-			this._game.loadNextLevel = true;
 			this.allowNextLoad = true;
+			this._game.showingPlot = true;
+			this._game.levelTime = 0f;
+			this._game.GetType().GetMethod("LoadNextLevel", BindingFlags.Instance | BindingFlags.NonPublic).Invoke(this._game, null);
 		}
 
 		// Token: 0x060004F6 RID: 1270 RVA: 0x000312A8 File Offset: 0x0002F4A8
