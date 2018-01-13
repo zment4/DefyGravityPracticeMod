@@ -28,7 +28,7 @@ namespace RocketJump.Modification
 			}
 		}
 
-		// Token: 0x060004E9 RID: 1257 RVA: 0x00030C8C File Offset: 0x0002EE8C
+		// Token: 0x060004E9 RID: 1257 RVA: 0x00030C90 File Offset: 0x0002EE90
 		public void Update()
 		{
 			if (this.KeyPressed(Microsoft.Xna.Framework.Input.Keys.F10))
@@ -37,11 +37,11 @@ namespace RocketJump.Modification
 			}
 			if (this.CurrentMode != PracticeMode.PracticeModes.None)
 			{
-				if (this.KeyPressed(Microsoft.Xna.Framework.Input.Keys.PageDown))
+				if (this.KeyPressed(Microsoft.Xna.Framework.Input.Keys.PageUp))
 				{
 					this.LoadNextLevel();
 				}
-				if (this.KeyPressed(Microsoft.Xna.Framework.Input.Keys.PageUp))
+				if (this.KeyPressed(Microsoft.Xna.Framework.Input.Keys.PageDown))
 				{
 					this.LoadPreviousLevel();
 				}
@@ -80,7 +80,7 @@ namespace RocketJump.Modification
 			this.oldLastUpdateTicks = this._game.lastUpdateTicks;
 		}
 
-		// Token: 0x060004EA RID: 1258 RVA: 0x00030DD4 File Offset: 0x0002EFD4
+		// Token: 0x060004EA RID: 1258 RVA: 0x00030DD8 File Offset: 0x0002EFD8
 		public void Draw(SpriteBatch spriteBatch)
 		{
 			double item = (this.frameTimeTicks.Count < 60) ? 166666.0 : this.frameTimeTicks.Average();
@@ -134,7 +134,7 @@ namespace RocketJump.Modification
 			spriteBatch.End();
 		}
 
-		// Token: 0x060004EB RID: 1259 RVA: 0x000310BC File Offset: 0x0002F2BC
+		// Token: 0x060004EB RID: 1259 RVA: 0x000310C0 File Offset: 0x0002F2C0
 		public PracticeMode()
 		{
 			Thread.CurrentThread.CurrentCulture = CultureInfo.InvariantCulture;
@@ -191,7 +191,7 @@ namespace RocketJump.Modification
 			this.averageFrameTimes = new Queue<double>();
 		}
 
-		// Token: 0x060004ED RID: 1261 RVA: 0x000311EC File Offset: 0x0002F3EC
+		// Token: 0x060004ED RID: 1261 RVA: 0x000311F0 File Offset: 0x0002F3F0
 		public void OnDeath()
 		{
 			Action onDeath = this.CurrentPracticeModeData.OnDeath;
@@ -202,7 +202,7 @@ namespace RocketJump.Modification
 			onDeath();
 		}
 
-		// Token: 0x060004EE RID: 1262 RVA: 0x00031210 File Offset: 0x0002F410
+		// Token: 0x060004EE RID: 1262 RVA: 0x00031214 File Offset: 0x0002F414
 		public void OnExit()
 		{
 			if (this.allowNextLoad)
@@ -230,8 +230,21 @@ namespace RocketJump.Modification
 			this.CurrentMode = (this.CurrentMode + 1) % (PracticeMode.PracticeModes)3;
 		}
 
-		// Token: 0x060004F4 RID: 1268 RVA: 0x00031244 File Offset: 0x0002F444
+		// Token: 0x060004F4 RID: 1268 RVA: 0x00031248 File Offset: 0x0002F448
 		public void LoadNextLevel()
+		{
+			if (this._game.levelIndex >= 24)
+			{
+				this._game.levelIndex = 0;
+				this._game.hardMode = !this._game.hardMode;
+			}
+			this._game.savePoint = 0;
+			this._game.loadNextLevel = true;
+			this.allowNextLoad = true;
+		}
+
+		// Token: 0x060004F5 RID: 1269 RVA: 0x000312A8 File Offset: 0x0002F4A8
+		public void LoadPreviousLevel()
 		{
 			this._game.levelIndex -= 2;
 			if (this._game.levelIndex < 0)
@@ -244,20 +257,7 @@ namespace RocketJump.Modification
 			this.allowNextLoad = true;
 		}
 
-		// Token: 0x060004F5 RID: 1269 RVA: 0x000312B8 File Offset: 0x0002F4B8
-		public void LoadPreviousLevel()
-		{
-			if (this._game.levelIndex >= 24)
-			{
-				this._game.levelIndex = 0;
-				this._game.hardMode = !this._game.hardMode;
-			}
-			this._game.savePoint = 0;
-			this._game.loadNextLevel = true;
-			this.allowNextLoad = true;
-		}
-
-		// Token: 0x060004F6 RID: 1270 RVA: 0x00031318 File Offset: 0x0002F518
+		// Token: 0x060004F6 RID: 1270 RVA: 0x0003131C File Offset: 0x0002F51C
 		public void ToggleHardMode()
 		{
 			this._game.hardMode = !this._game.hardMode;
@@ -266,14 +266,14 @@ namespace RocketJump.Modification
 			this.allowNextLoad = true;
 		}
 
-		// Token: 0x060004F7 RID: 1271 RVA: 0x00031364 File Offset: 0x0002F564
+		// Token: 0x060004F7 RID: 1271 RVA: 0x00031368 File Offset: 0x0002F568
 		public void ToggleFixedTimestep()
 		{
 			this.practiceModeSettings.IsFixedTimeStep = !(bool)this.GetNamedMember(this._game, "isFixedTimeStep");
 			this.SetNamedMember(this._game, "isFixedTimeStep", this.practiceModeSettings.IsFixedTimeStep);
 		}
 
-		// Token: 0x060004F8 RID: 1272 RVA: 0x000313B8 File Offset: 0x0002F5B8
+		// Token: 0x060004F8 RID: 1272 RVA: 0x000313BC File Offset: 0x0002F5BC
 		public void SaveConfig()
 		{
 			try
@@ -289,7 +289,7 @@ namespace RocketJump.Modification
 			}
 		}
 
-		// Token: 0x060004F9 RID: 1273 RVA: 0x00031428 File Offset: 0x0002F628
+		// Token: 0x060004F9 RID: 1273 RVA: 0x0003142C File Offset: 0x0002F62C
 		public void LoadConfig()
 		{
 			try
@@ -314,7 +314,7 @@ namespace RocketJump.Modification
 			this.ApplyConfig();
 		}
 
-		// Token: 0x060004FB RID: 1275 RVA: 0x000314B8 File Offset: 0x0002F6B8
+		// Token: 0x060004FB RID: 1275 RVA: 0x000314BC File Offset: 0x0002F6BC
 		public void ApplyConfig()
 		{
 			try
@@ -373,7 +373,7 @@ namespace RocketJump.Modification
 			return this.GetMemberInfo(obj.GetType(), name);
 		}
 
-		// Token: 0x06000506 RID: 1286 RVA: 0x00031530 File Offset: 0x0002F730
+		// Token: 0x06000506 RID: 1286 RVA: 0x00031534 File Offset: 0x0002F734
 		public MemberInfo GetMemberInfo(Type type, string name)
 		{
 			PropertyInfo propertyInfo = null;
@@ -405,7 +405,7 @@ namespace RocketJump.Modification
 			return fieldInfo;
 		}
 
-		// Token: 0x06000507 RID: 1287 RVA: 0x00031594 File Offset: 0x0002F794
+		// Token: 0x06000507 RID: 1287 RVA: 0x00031598 File Offset: 0x0002F798
 		public void ToggleVSync()
 		{
 			this.practiceModeSettings.SyncToVerticalRefresh = !this.practiceModeSettings.SyncToVerticalRefresh;

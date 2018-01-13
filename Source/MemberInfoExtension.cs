@@ -6,7 +6,7 @@ namespace RocketJump.Modification
 	// Token: 0x020000AF RID: 175
 	public static class MemberInfoExtension
 	{
-		// Token: 0x0600051A RID: 1306 RVA: 0x00031644 File Offset: 0x0002F844
+		// Token: 0x0600051A RID: 1306 RVA: 0x00031648 File Offset: 0x0002F848
 		public static object GetValue(this MemberInfo mi, object obj)
 		{
 			PropertyInfo propertyInfo = mi as PropertyInfo;
