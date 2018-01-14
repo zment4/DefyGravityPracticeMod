@@ -17,7 +17,7 @@ namespace RocketJump.Modification
 	public class PracticeMode
 	{
 		// Token: 0x1700006C RID: 108
-		// (get) Token: 0x060004E8 RID: 1256 RVA: 0x000052D9 File Offset: 0x000034D9
+		// (get) Token: 0x060004ED RID: 1261 RVA: 0x000052F9 File Offset: 0x000034F9
 		private PracticeMode.PracticeModeData CurrentPracticeModeData
 		{
 			get
@@ -28,7 +28,7 @@ namespace RocketJump.Modification
 			}
 		}
 
-		// Token: 0x060004E9 RID: 1257 RVA: 0x00030C1C File Offset: 0x0002EE1C
+		// Token: 0x060004EE RID: 1262 RVA: 0x0003168C File Offset: 0x0002F88C
 		public void Update()
 		{
 			if (this.KeyPressed(Microsoft.Xna.Framework.Input.Keys.F10))
@@ -80,7 +80,7 @@ namespace RocketJump.Modification
 			this.oldLastUpdateTicks = this._game.lastUpdateTicks;
 		}
 
-		// Token: 0x060004EA RID: 1258 RVA: 0x00030D64 File Offset: 0x0002EF64
+		// Token: 0x060004EF RID: 1263 RVA: 0x000317D4 File Offset: 0x0002F9D4
 		public void Draw(SpriteBatch spriteBatch)
 		{
 			double item = (this.frameTimeTicks.Count < 60) ? 166666.0 : this.frameTimeTicks.Average();
@@ -134,7 +134,7 @@ namespace RocketJump.Modification
 			spriteBatch.End();
 		}
 
-		// Token: 0x060004EB RID: 1259 RVA: 0x0003104C File Offset: 0x0002F24C
+		// Token: 0x060004F0 RID: 1264 RVA: 0x00031ABC File Offset: 0x0002FCBC
 		public PracticeMode()
 		{
 			Thread.CurrentThread.CurrentCulture = CultureInfo.InvariantCulture;
@@ -189,9 +189,20 @@ namespace RocketJump.Modification
 			this.oldLastUpdateTicks = this._game.lastUpdateTicks;
 			this.frameTimeTicks = new Queue<long>();
 			this.averageFrameTimes = new Queue<double>();
+			if (File.Exists("DefyGravity.exe.old"))
+			{
+				File.Delete("DefyGravity.exe.old");
+			}
+			if (this.practiceModeSettings.CheckForUpdates)
+			{
+				new AutoUpdater(delegate(bool b)
+				{
+					this.practiceModeSettings.CheckForUpdates = b;
+				});
+			}
 		}
 
-		// Token: 0x060004ED RID: 1261 RVA: 0x0003117C File Offset: 0x0002F37C
+		// Token: 0x060004F2 RID: 1266 RVA: 0x00031C20 File Offset: 0x0002FE20
 		public void OnDeath()
 		{
 			Action onDeath = this.CurrentPracticeModeData.OnDeath;
@@ -202,7 +213,7 @@ namespace RocketJump.Modification
 			onDeath();
 		}
 
-		// Token: 0x060004EE RID: 1262 RVA: 0x000311A0 File Offset: 0x0002F3A0
+		// Token: 0x060004F3 RID: 1267 RVA: 0x00031C44 File Offset: 0x0002FE44
 		public void OnExit()
 		{
 			if (this.allowNextLoad)
@@ -218,19 +229,19 @@ namespace RocketJump.Modification
 			onExit();
 		}
 
-		// Token: 0x060004EF RID: 1263 RVA: 0x00005307 File Offset: 0x00003507
+		// Token: 0x060004F4 RID: 1268 RVA: 0x00005327 File Offset: 0x00003527
 		public bool KeyPressed(Microsoft.Xna.Framework.Input.Keys key)
 		{
 			return this._game != null && !this.oldState.IsKeyDown(key) && this._game.keyboardState.IsKeyDown(key);
 		}
 
-		// Token: 0x060004F3 RID: 1267 RVA: 0x0000536B File Offset: 0x0000356B
+		// Token: 0x060004F8 RID: 1272 RVA: 0x0000538B File Offset: 0x0000358B
 		public void ToggleMode()
 		{
 			this.CurrentMode = (this.CurrentMode + 1) % (PracticeMode.PracticeModes)3;
 		}
 
-		// Token: 0x060004F4 RID: 1268
+		// Token: 0x060004F9 RID: 1273 RVA: 0x00031C78 File Offset: 0x0002FE78
 		public void LoadNextLevel()
 		{
 			if (this._game.levelIndex >= 24)
@@ -244,7 +255,7 @@ namespace RocketJump.Modification
 			this._game.GetType().GetMethod("LoadNextLevel", BindingFlags.Instance | BindingFlags.NonPublic).Invoke(this._game, null);
 		}
 
-		// Token: 0x060004F5 RID: 1269
+		// Token: 0x060004FA RID: 1274 RVA: 0x00031D08 File Offset: 0x0002FF08
 		public void LoadPreviousLevel()
 		{
 			this._game.levelIndex -= 2;
@@ -259,7 +270,7 @@ namespace RocketJump.Modification
 			this._game.GetType().GetMethod("LoadNextLevel", BindingFlags.Instance | BindingFlags.NonPublic).Invoke(this._game, null);
 		}
 
-		// Token: 0x060004F6 RID: 1270 RVA: 0x00031310 File Offset: 0x0002F510
+		// Token: 0x060004FB RID: 1275 RVA: 0x00031DA8 File Offset: 0x0002FFA8
 		public void ToggleHardMode()
 		{
 			this._game.hardMode = !this._game.hardMode;
@@ -268,13 +279,13 @@ namespace RocketJump.Modification
 			this.allowNextLoad = true;
 		}
 
-		// Token: 0x060004F7 RID: 1271 RVA: 0x0003135C File Offset: 0x0002F55C
+		// Token: 0x060004FC RID: 1276 RVA: 0x00031DF4 File Offset: 0x0002FFF4
 		public void ToggleFixedTimestep()
 		{
 			this.practiceModeSettings.IsFixedTimeStep = (this._game.IsFixedTimeStep = !this._game.IsFixedTimeStep);
 		}
 
-		// Token: 0x060004F8 RID: 1272 RVA: 0x00031390 File Offset: 0x0002F590
+		// Token: 0x060004FD RID: 1277 RVA: 0x00031E28 File Offset: 0x00030028
 		public void SaveConfig()
 		{
 			try
@@ -290,7 +301,7 @@ namespace RocketJump.Modification
 			}
 		}
 
-		// Token: 0x060004F9 RID: 1273 RVA: 0x00031400 File Offset: 0x0002F600
+		// Token: 0x060004FE RID: 1278 RVA: 0x00031E98 File Offset: 0x00030098
 		public void LoadConfig()
 		{
 			try
@@ -306,16 +317,12 @@ namespace RocketJump.Modification
 			}
 			if (this.practiceModeSettings == null)
 			{
-				this.practiceModeSettings = new PracticeMode.PracticeModeSettings
-				{
-					IsFixedTimeStep = true,
-					SyncToVerticalRefresh = true
-				};
+				this.practiceModeSettings = new PracticeMode.PracticeModeSettings();
 			}
 			this.ApplyConfig();
 		}
 
-		// Token: 0x060004FB RID: 1275 RVA: 0x00031490 File Offset: 0x0002F690
+		// Token: 0x06000500 RID: 1280 RVA: 0x00031F1C File Offset: 0x0003011C
 		public void ApplyConfig()
 		{
 			this._game.IsFixedTimeStep = this.practiceModeSettings.IsFixedTimeStep;
@@ -324,7 +331,7 @@ namespace RocketJump.Modification
 		}
 
 		// Token: 0x1700006D RID: 109
-		// (get) Token: 0x060004FC RID: 1276 RVA: 0x0000539B File Offset: 0x0000359B
+		// (get) Token: 0x06000501 RID: 1281 RVA: 0x000053BB File Offset: 0x000035BB
 		private string configFilePathBase
 		{
 			get
@@ -334,7 +341,7 @@ namespace RocketJump.Modification
 		}
 
 		// Token: 0x1700006E RID: 110
-		// (get) Token: 0x060004FD RID: 1277 RVA: 0x000053C1 File Offset: 0x000035C1
+		// (get) Token: 0x06000502 RID: 1282 RVA: 0x000053E1 File Offset: 0x000035E1
 		private string configFilePath
 		{
 			get
@@ -343,13 +350,13 @@ namespace RocketJump.Modification
 			}
 		}
 
-		// Token: 0x060004FE RID: 1278 RVA: 0x000053D4 File Offset: 0x000035D4
+		// Token: 0x06000503 RID: 1283 RVA: 0x000053F4 File Offset: 0x000035F4
 		protected override void Finalize()
 		{
 			this.SaveConfig();
 		}
 
-		// Token: 0x06000503 RID: 1283 RVA: 0x000314E0 File Offset: 0x0002F6E0
+		// Token: 0x06000508 RID: 1288 RVA: 0x00031F6C File Offset: 0x0003016C
 		public void ToggleVSync()
 		{
 			this.practiceModeSettings.SyncToVerticalRefresh = !this.practiceModeSettings.SyncToVerticalRefresh;
@@ -429,6 +436,14 @@ namespace RocketJump.Modification
 		// Token: 0x020000AB RID: 171
 		public class PracticeModeSettings
 		{
+			// Token: 0x0600050B RID: 1291 RVA: 0x0000541D File Offset: 0x0000361D
+			public PracticeModeSettings()
+			{
+				this.IsFixedTimeStep = true;
+				this.SyncToVerticalRefresh = true;
+				this.CheckForUpdates = true;
+			}
+
 			// Token: 0x04000642 RID: 1602
 			public bool IsFixedTimeStep;
 
@@ -437,6 +452,9 @@ namespace RocketJump.Modification
 
 			// Token: 0x04000644 RID: 1604
 			public bool SyncToVerticalRefresh;
+
+			// Token: 0x04000645 RID: 1605
+			public bool CheckForUpdates;
 		}
 	}
 }
