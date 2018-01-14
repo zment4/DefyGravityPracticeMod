@@ -9,7 +9,7 @@ Currently the best way to fix the slowdown (even if you don't have the slowdown,
 
 PS. Speedruns are not accepted if the red bullet bill shows up for the most of the run.
 
-Download the [latest release](https://github.com/jkarkkainen/DefyGravityPracticeMod/releases/latest), unpack over the `DefyGravity.exe`
+Download the [latest release](https://github.com/jkarkkainen/DefyGravityPracticeMod/releases/latest), copy over the `DefyGravity.exe`
 
 ### Usage
 | **At any time**||
