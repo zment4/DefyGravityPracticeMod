@@ -11,14 +11,18 @@ PS. Speedruns are not accepted if the red bullet bill shows up for the most of t
 
 Download the [latest release](https://github.com/jkarkkainen/DefyGravityPracticeMod/releases/latest), copy over the `DefyGravity.exe`
 
+The PracticeMod features an auto-updater, which queries the latest release and ask if you want to update. You can disable the auto-updater by answering No and then answering Yes to the question of "Do you want to disable auto-updater completely?". You can also disable it from the PracticeMod settings, which reside in `My Documents/My Games/Defy Gravity/PracticeMode/PracticeModConfig.xml`
+
 ### Usage
 | **At any time**||
 |---|---|
 |F10 | Cycle Level Practice with checkpoints/Level Practice without checkpoints/Level Practice off|
 |**In Level Practice mode**||
+|Tab | Toggle Hard Mode|
 |PageUp | Load Next Level|
 |PageDown | Load Previous Level|
-|Tab | Toggle Hard Mode|
+|Numpad+|Go to next checkpoint|
+|Numpad-|Go to previous checkpoint|
 ||**Following settings are saved and work after exiting practice mode/game as well**|
 |F1 | Toggle Slowdown Fix|
 |F2 | Toggle Experimental Timing Fix (tries to sync updates to be always 60Hz)|
